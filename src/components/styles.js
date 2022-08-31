@@ -8,8 +8,9 @@ export default makeStyles(() => ({
   toolbar: {
     height: "70px",
   },
-  cntent: {
+  content: {
     flexGrow: 1,
     padding: "2em",
+    justifyContent: "space-between",
   },
 }));

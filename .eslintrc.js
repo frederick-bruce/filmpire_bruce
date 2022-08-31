@@ -16,6 +16,7 @@ module.exports = {
   },
   plugins: [
     "react",
+    "html",
   ],
   rules: {
     quotes: ["error", "double"],
@@ -74,6 +75,9 @@ module.exports = {
           "noHref",
           "invalidHref",
           "preferButton",
+        ],
+        ignorePatterns: [
+          "**/*.html",
         ],
       },
     ],
