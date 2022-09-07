@@ -31,7 +31,7 @@ export default makeStyles((theme) => ({
   linkButton: {
     "&:hover": {
       color: "white !important",
-      textDecoration: "mome",
+      textDecoration: "none",
     },
   },
 }));
