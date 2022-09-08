@@ -11,7 +11,7 @@ import useStyles from "./styles.js";
 const Search = () => {
   const [query, setQuery] = useState("");
   const classes = useStyles();
-  const { dispatch } = useDispatch();
+  const dispatch = useDispatch();
   const location = useLocation();
 
   const handleKeyPress = (event) => {
