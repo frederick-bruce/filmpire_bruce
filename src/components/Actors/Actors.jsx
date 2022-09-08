@@ -3,7 +3,7 @@ import { Box, Button, CircularProgress, Grid, Typography } from "@mui/material";
 import { useHistory, useParams } from "react-router-dom";
 import { ArrowBack } from "@mui/icons-material";
 import useStyles from "./styles";
-import { MovieList } from "..";
+import { MovieList, Pagination } from "..";
 
 import { useGetActorsDetailsQuery, useGetMoviesByActorIdQuery } from "../../services/TMDB";
 
@@ -11,9 +11,9 @@ const Actors = () => {
   const { id } = useParams();
   const history = useHistory();
   const classes = useStyles();
-  const page = 1;
+  const [page, setPage] = useState(1);
 
-  const { data: movies} = useGetMoviesByActorIdQuery({ id, page });
+  const { data: movies } = useGetMoviesByActorIdQuery({ id, page });
   const { data, isFetching, error } = useGetActorsDetailsQuery(id);
 
   if (isFetching) {
@@ -55,7 +55,7 @@ const Actors = () => {
             {data?.biography || "Sorry, no biography yet..."}
           </Typography>
           <Box marginTop="2rem" display="flex" justifyContent="space-around">
-            <Button variant="contained" color="primary" target="_blank" href={`https://www.imdb.com/name/${data?.imdb_id}`}> 
+            <Button variant="contained" color="primary" target="_blank" href={`https://www.imdb.com/name/${data?.imdb_id}`}>
               IMDB
             </Button>
             <Button startIcon={<ArrowBack />} onClick={() => history.goBack()} color="primary">
@@ -69,6 +69,7 @@ const Actors = () => {
           Movies
         </Typography>
         { movies && <MovieList movies={movies} numberOfMovies={12} />}
+        <Pagination currentPage={page} setPage={setPage} totalPages={movies?.total_pages} />
       </Box>
     </>
   );

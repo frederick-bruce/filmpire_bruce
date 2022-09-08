@@ -17,7 +17,7 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       margin: "0 auto",
       width: "50%",
-      height: "350px",
+      // height: "350px",
     },
     [theme.breakpoints.down("sm")]: {
       margin: "0 auto",
@@ -43,6 +43,7 @@ export default makeStyles((theme) => ({
     textDecoration: "none",
     [theme.breakpoints.down("sm")]: {
       padding: "0.5rem 1rem",
+      width: "100%",
     },
   },
   castImage: {
@@ -58,6 +59,10 @@ export default makeStyles((theme) => ({
     width: "100%",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "100%",
     },
   },
   modal: {
