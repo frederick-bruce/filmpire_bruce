@@ -7,8 +7,8 @@ import axios from "axios";
 
 import useStyles from "./styles";
 import genreIcons from "../../assets/genres";
-import { useGetMovieQuery, useGetRecommendationsQuery, useGetListQuery } from "../../services/TMDB.js";
-import { selectGenreOrCategory } from "../../features/currentGenreOrCategory.js";
+import { useGetMovieQuery, useGetRecommendationsQuery, useGetListQuery } from "../../services/TMDB";
+import { selectGenreOrCategory } from "../../features/currentGenreOrCategory";
 import { MovieList } from "..";
 import { userSelector } from "../../features/auth";
 
