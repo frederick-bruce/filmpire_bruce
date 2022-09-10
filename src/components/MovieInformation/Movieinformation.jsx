@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
-import { Modal, Typography, Button, ButtonGroup, Grid, Box, CircularProgress, useMediaQuery, Rating } from "@mui/material";
+import { Modal, Typography, Button, ButtonGroup, Grid, Box, CircularProgress, Rating } from "@mui/material";
 import { Movie as MovieIcon, Theaters, Language, PlusOne, Favorite, FavoriteBorderOutlined, Remove, ArrowBack } from "@mui/icons-material";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,7 +24,7 @@ const Movieinformation = () => {
   const [isMovieFavorited, setIsMovieFavorited] = useState(false);
   const [isMovieWatchlisted, setIsMovieWatchlisted] = useState(false);
 
-  const { data: recommendations, isFetching: isRecommendationsFetching } = useGetRecommendationsQuery({ list: "/recommendations", movie_id: id });
+  const { data: recommendations } = useGetRecommendationsQuery({ list: "/recommendations", movie_id: id });
   const { data: favoriteMovies } = useGetListQuery({ listName: "favorite/movies", accountId: user.id, sessionId: localStorage.getItem("session_id"), page: 1 });
   const { data: watchlistMovies } = useGetListQuery({ listName: "watchlist/movies", accountId: user.id, sessionId: localStorage.getItem("session_id"), page: 1 });
 
@@ -75,7 +76,7 @@ const Movieinformation = () => {
 
   return (
     <Grid container className={classes.containerSpaceAround}>
-      <Grid item sm={12} lg={4} style={{ display: "flex", marginBottom: "30px" }}>
+      <Grid item sm={12} lg={4} style={{ display: "flex", marginBottom: "30px", justifyContent: "center" }}>
         <img
           className={classes.poster}
           src={`https://image.tmdb.org/t/p/w500/${data?.poster_path}`}

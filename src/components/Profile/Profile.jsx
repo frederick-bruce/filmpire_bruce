@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useEffect } from "react";
 import { Typography, Button, Box } from "@mui/material";
 import { useSelector } from "react-redux";

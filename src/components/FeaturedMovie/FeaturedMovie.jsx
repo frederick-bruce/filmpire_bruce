@@ -20,8 +20,9 @@ const FeaturedMovie = ({ movie }) => {
           className={classes.cardMedia}
         />
         <Box padding="20px">
-          <CardContent className={classes.cardContent} classes={{ root: classes.cardContentRoot }}> 
-            <Typography variant="h5">{movie.overview}</Typography>
+          <CardContent className={classes.cardContent} classes={{ root: classes.cardContentRoot }}>
+            <Typography variant="h5" gutterBottom>{movie.title}</Typography>
+            <Typography variant="body2" gutterBottom>{movie.overview}</Typography>
           </CardContent>
         </Box>
       </Card>
