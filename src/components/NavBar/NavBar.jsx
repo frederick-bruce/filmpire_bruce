@@ -61,7 +61,7 @@ const NavBar = () => {
           <IconButton
             color="inherit"
             sx={{ ml: 1 }}
-            onClick={colorMode.ToggleColorMode}
+            onClick={colorMode.toggleColorMode}
           >
             {theme.palette.mode === "dark" ? <Brightness7 /> : <Brightness4 />}
           </IconButton>

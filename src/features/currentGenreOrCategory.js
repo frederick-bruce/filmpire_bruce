@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
 
 export const genreOrCategory = createSlice({
@@ -9,13 +11,13 @@ export const genreOrCategory = createSlice({
   },
   reducers: {
     selectGenreOrCategory: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
       state.genreIdOrCategoryName = action.payload;
-      // eslint-disable-next-line no-param-reassign
+
       state.searchQuery = "";
     },
     searchMovie: (state, action) => {
       // eslint-disable-next-line no-param-reassign
+      console.log(action.payload);
       state.searchQuery = action.payload;
     },
   },
