@@ -6,13 +6,13 @@ import { useTheme } from "@mui/material/styles";
 import { useDispatch, useSelector } from "react-redux";
 
 import { ColorModeContext } from "../../utils/ToggleColorMode";
-import { setUser, userSelector } from "../../features/auth";
+import { setUser } from "../../features/auth";
 import { Sidebar, Search } from "..";
 import { fetchToken, createSessionId, moviesApi } from "../../utils";
 import useStyles from "./styles.js";
 
-const NavBar = () => {
-  const { isAuthenticated, user } = useSelector(userSelector);
+function NavBar() {
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   const [mobileOpen, setMobileOpen] = useState(false);
   const classes = useStyles();
   const isMobile = useMediaQuery("(max-width:600px)");
@@ -28,13 +28,10 @@ const NavBar = () => {
       if (token) {
         if (sessionIdFromLocalStorage) {
           const { data: userData } = await moviesApi.get(`/account?session_id=${sessionIdFromLocalStorage}`);
-
           dispatch(setUser(userData));
         } else {
           const sessionId = await createSessionId();
-
           const { data: userData } = await moviesApi.get(`/account?session_id=${sessionId}`);
-
           dispatch(setUser(userData));
         }
       }
@@ -116,6 +113,6 @@ const NavBar = () => {
       </div>
     </>
   );
-};
+}
 
 export default NavBar;

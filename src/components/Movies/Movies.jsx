@@ -26,7 +26,7 @@ const Movies = () => {
   if (!data.results.length) {
     return (
       <Box display="flex" alignItems="center" mt="20px">
-        <Typography varian="h4">
+        <Typography variant="h4">
           No movies that match that name.
           <br />
           Please search for something else.
@@ -35,7 +35,6 @@ const Movies = () => {
     );
   }
 
-  // Obscure error
   if (error) return "An error has occured.";
 
   return (
