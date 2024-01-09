@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -24,5 +23,3 @@ const authSlice = createSlice({
 export const { setUser } = authSlice.actions;
 
 export default authSlice.reducer;
-
-export const userSelector = (state) => state.user;

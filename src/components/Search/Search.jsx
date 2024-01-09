@@ -3,13 +3,12 @@ import { TextField, InputAdornment } from "@mui/material";
 import { Search as SearchIcon } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 
+import useStyles from "./styles";
 import { searchMovie } from "../../features/currentGenreOrCategory";
 
-import useStyles from "./styles.js";
-
-const Search = () => {
-  const [query, setQuery] = useState("");
+function Search() {
   const classes = useStyles();
+  const [query, setQuery] = useState("");
   const dispatch = useDispatch();
 
   const handleKeyPress = (e) => {
@@ -17,8 +16,6 @@ const Search = () => {
       dispatch(searchMovie(query));
     }
   };
-
-  // if (location.path_name !== "/") return null;
 
   return (
     <div className={classes.searchContainer}>
@@ -33,12 +30,11 @@ const Search = () => {
             <InputAdornment position="start">
               <SearchIcon />
             </InputAdornment>
-
           ),
         }}
       />
     </div>
   );
-};
+}
 
 export default Search;

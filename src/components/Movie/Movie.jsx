@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import useStyles from "./styles";
 
-const Movie = ({ movie, i }) => {
+function Movie({ movie, i }) {
   const classes = useStyles();
 
   return (
@@ -12,12 +12,18 @@ const Movie = ({ movie, i }) => {
       <Grow in key={i} timeout={(i + 1) * 250}>
         <Link className={classes.links} to={`/movie/${movie.id}`}>
           <img
+            src={
+              movie.poster_path
+                ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                : "https://www.fillmurray.com/200/300"
+            }
             alt={movie.title}
             className={classes.image}
-            src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : "https://www.fillmurry/200/300"}
           />
-          <Typography className={classes.title} variant="h5">{movie.title}</Typography>
-          <Tooltip disableTouchListener title={`${movie.vote_average}` / 10}>
+          <Typography className={classes.title} variant="h5">
+            {movie.title}
+          </Typography>
+          <Tooltip disableTouchListener title={`${movie.vote_average} / 10`}>
             <div>
               <Rating readOnly value={movie.vote_average / 2} precision={0.1} />
             </div>
@@ -26,6 +32,6 @@ const Movie = ({ movie, i }) => {
       </Grow>
     </Grid>
   );
-};
+}
 
 export default Movie;

@@ -2,9 +2,9 @@ import React from "react";
 import { Grid } from "@mui/material";
 
 import useStyles from "./styles";
-import { Movie } from "..";
+import { Movie } from "../index";
 
-const MovieList = ({ movies, numberOfMovies, excludeFirst }) => {
+function MovieList({ movies, numberOfMovies, excludeFirst }) {
   const classes = useStyles();
   const startFrom = excludeFirst ? 1 : 0;
 
@@ -15,6 +15,6 @@ const MovieList = ({ movies, numberOfMovies, excludeFirst }) => {
       ))}
     </Grid>
   );
-};
+}
 
 export default MovieList;
